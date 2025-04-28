@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">CairoBanknigApp</string>
+
+    <string-array name="Spinner_Electricity_id">
+
+
+        <item>Cairo Of Electricty</item>
+        <item>10th of ramdan Electricity</item>
+        <item>Giza Electricity</item>
+
+    </string-array>
+
+    <string-array name="Spinner_Water_id">
+
+
+        <item>Cairo Of Water</item>
+        <item>10th of ramdan Water</item>
+        <item>Giza of water</item>
+
+    </string-array>
+
+    <string-array name="Spinner_Gas_id">
+
+
+        <item>Cairo Of Gas</item>
+        <item>10th of ramdan Gas</item>
+        <item>Giza of Gas</item>
+
+    </string-array>
+
+    <string-array name="Spinner_Internet_id">
+
+
+        <item>We</item>
+        <item>Vodafone</item>
+        <item>Etisalat</item>
+
+    </string-array>
+</resources>
