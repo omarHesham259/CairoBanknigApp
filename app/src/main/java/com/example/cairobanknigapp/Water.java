@@ -59,6 +59,12 @@ public class Water extends AppCompatActivity {
                 return;
             }
 
+            // 🚨 ADD ZERO VALIDATION 🚨
+            if (amount <= 0) {
+                Toast.makeText(this, "Amount must be greater than zero", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             double balance = dbHelper.getBalance(currentUser);
 
             if (amount > balance) {
@@ -77,8 +83,8 @@ public class Water extends AppCompatActivity {
                 mediaPlayer.start();
                 finish();
                 Toast.makeText(this, "Water bill paid successfully!", Toast.LENGTH_SHORT).show();
-
             }
         });
+
     }
 }

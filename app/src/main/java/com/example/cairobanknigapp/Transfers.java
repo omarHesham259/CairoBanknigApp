@@ -76,6 +76,11 @@ public  class Transfers extends AppCompatActivity {
                 return;
             }
 
+            if (amount <= 0) {
+                Toast.makeText(this, "Amount must be greater than zero", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             // Check if recipient exists
             int recipientId = dbHelper.getUserId(recipient);
             if (recipientId == -1) {

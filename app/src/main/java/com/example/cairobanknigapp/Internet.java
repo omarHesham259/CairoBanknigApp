@@ -42,6 +42,9 @@ public class Internet extends AppCompatActivity {
         serviceNumberEditText = findViewById(R.id.edit_user_number);
         amountEditText = findViewById(R.id.edit_amount);
         payButton = findViewById(R.id.pay);
+
+
+
         // Pay button click listener
         payButton.setOnClickListener(v -> {
             String serviceNumber = serviceNumberEditText.getText().toString().trim();
@@ -60,6 +63,12 @@ public class Internet extends AppCompatActivity {
                 return;
             }
 
+            // 🚨 ADD THIS ZERO VALIDATION 🚨
+            if (amount <= 0) {
+                Toast.makeText(this, "Amount must be greater than zero", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             double balance = dbHelper.getBalance(currentUser);
 
             if (amount > balance) {
@@ -72,15 +81,14 @@ public class Internet extends AppCompatActivity {
 
                 dbHelper.insertTransaction(currentUser, "Internet", amount, details);
 
-                // Go back to home page
                 startActivity(new Intent(this, HomePage.class));
                 MediaPlayer mediaPlayer = MediaPlayer.create(this ,R.raw.payment_sound);
                 mediaPlayer.start();
                 finish();
                 Toast.makeText(this, "Internet bill paid successfully!", Toast.LENGTH_SHORT).show();
-
             }
         });
+
     }
 }
 

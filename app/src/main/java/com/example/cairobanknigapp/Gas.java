@@ -63,6 +63,12 @@ public class Gas extends AppCompatActivity {
                 return;
             }
 
+            // 🚨 ADD THIS ZERO VALIDATION 🚨
+            if (amount <= 0) {
+                Toast.makeText(this, "Amount must be greater than zero", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             double balance = dbHelper.getBalance(currentUser);
 
             if (amount > balance) {
@@ -81,8 +87,8 @@ public class Gas extends AppCompatActivity {
                 mediaPlayer.start();
                 finish();
                 Toast.makeText(this, "Gas bill paid successfully!", Toast.LENGTH_SHORT).show();
-
             }
         });
+
     }
 }
